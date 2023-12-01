@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+import "google/protobuf/timestamp.proto";
+
+message CustomerOrder {
+  int32 customerNumber = 1;
+  string customerName = 2;
+  string customerAddress = 3;
+  google.protobuf.Timestamp orderTime = 4;
+  google.protobuf.Timestamp shipDate = 5;
+  repeated OrderLine lines = 6;
+}
+
+message OrderLine {
+  int32 productNumber = 1;
+  string productName = 2;
+  int32 qty = 3;
+}
